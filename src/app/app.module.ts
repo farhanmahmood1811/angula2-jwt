@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home.component';
 import { AuthService } from './service/auth.service';
 import { LoginComponent } from './component/login.component';
+import { WebService } from './service/web.service';
 
 const routes = [
   {
@@ -51,7 +52,7 @@ const routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

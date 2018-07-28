@@ -38,6 +38,11 @@ export class AuthService {
         this.router.navigate(['/login']);
     }
 
+    get tokenHeader() {
+        let header = new Headers({'Authorization': 'Bearer '+localStorage.getItem(this.TOKEN_KEY)})
+        return new RequestOptions({headers: header});
+    } 
+
     get name() {
         return localStorage.getItem(this.NAME_KEY);
     }
@@ -45,11 +50,6 @@ export class AuthService {
     get isAuthenticated() {
         return !!localStorage.getItem(this.TOKEN_KEY)
     }
-
-    get tokenHeader() {
-        let header = new Headers({'Authorization': 'Bearer '+localStorage.getItem(this.TOKEN_KEY)})
-        return new RequestOptions({headers: header});
-    } 
 
 	private handleError(error) {
 		this.sb.open(error, "close", {duration: 2000});
